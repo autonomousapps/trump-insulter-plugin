@@ -56,8 +56,8 @@ gradlePlugin {
 // For publishing to the Gradle Plugin Portal
 // https://plugins.gradle.org/docs/publish-plugin
 pluginBundle {
-    website = "https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin"
-    vcsUrl = "https://github.com/autonomousapps/dependency-analysis-android-gradle-plugin"
+    website = "https://github.com/autonomousapps/trump-insulter-plugin"
+    vcsUrl = "https://github.com/autonomousapps/trump-insulter-plugin"
 
     description = "A plugin to insult Donald Trump, apparently the president of the United States"
 
@@ -70,6 +70,9 @@ pluginBundle {
 }
 
 gradlePlugin.testSourceSets(functionalTestSourceSet)
+tasks.withType<PluginUnderTestMetadata>().configureEach {
+    pluginClasspath.from(configurations.compileOnly)
+}
 
 val test by tasks.getting(Test::class)
 
