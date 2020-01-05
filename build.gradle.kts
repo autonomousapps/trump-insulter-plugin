@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     `java-gradle-plugin`
     id("org.jetbrains.kotlin.jvm") version "1.3.61"
@@ -18,7 +20,7 @@ java {
     targetCompatibility = JavaVersion.VERSION_1_8
 }
 
-tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().configureEach {
+tasks.withType<KotlinCompile>().configureEach {
     kotlinOptions {
         jvmTarget = "1.8"
     }
@@ -48,7 +50,7 @@ dependencies {
 
 gradlePlugin {
     val trumpInsultingPlugin by plugins.creating {
-        id = "com.autonomousapps.trumpinsulter"
+        id = "com.autonomousapps.trump-insulter"
         implementationClass = "com.autonomousapps.trumpinsulter.TrumpInsulterPlugin"
     }
 }
@@ -64,7 +66,7 @@ pluginBundle {
     (plugins) {
         "trumpInsultingPlugin" {
             displayName = "Trump Insulter"
-            tags = listOf("insults", "sanity")
+            tags = listOf("insults", "tutorial")
         }
     }
 }
